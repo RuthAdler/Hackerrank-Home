@@ -1,0 +1,74 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+class SinglyLinkedListNode:
+    def __init__(self, node_data):
+        self.data = node_data
+        self.next = None
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+def print_singly_linked_list(node, sep, fptr):
+    while node:
+        fptr.write(str(node.data))
+
+        node = node.next
+
+        if node:
+            fptr.write(sep)
+
+# Complete the insertNodeAtHead function below.
+
+#
+# For your reference:
+#
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+def insertNodeAtHead(llist, data):
+    if llist is None:#case of null
+    #the data should be return - list is empty
+        llist = SinglyLinkedListNode(data)
+    else:
+        #save the pointer, llist will be changed
+        currentHead = llist 
+        # use the data you got as the new node
+        newNode = SinglyLinkedListNode(data) 
+        #now pointer points to the new node
+        llist = newNode
+        #all saved, new node will be changed to the priviuse 
+        newNode.next = currentHead
+    
+        #if null- data will be return
+        # otherwise: llist is first new node
+        #then the last node will be return
+        #till the end (the start of the list)
+    return llist
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    llist_count = int(input())
+
+    llist = SinglyLinkedList()
+
+    for _ in range(llist_count):
+        llist_item = int(input())
+        llist_head = insertNodeAtHead(llist.head, llist_item)
+        llist.head = llist_head
+    
+    print_singly_linked_list(llist.head, '\n', fptr)
+    fptr.write('\n')
+    
+    fptr.close()
