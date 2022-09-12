@@ -1,0 +1,7 @@
+def birthdayCakeCandles(candles):
+    maxelemnt = max(candles)
+    count = 0
+    for candle in candles:
+        if candle == maxelemnt:
+            count +=1
+    return (count)
