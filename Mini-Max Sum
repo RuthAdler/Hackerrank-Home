@@ -1,0 +1,10 @@
+def miniMaxSum(arr):
+    total= sum(arr)
+    small = total
+    biggest = 0
+    for element in arr:
+        if total - element < small:
+            small = total - element
+        if total - element > biggest:
+            biggest = total - element
+    print (small, biggest)
