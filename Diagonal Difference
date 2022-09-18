@@ -1,0 +1,19 @@
+def diagonalDifference(arr):
+    
+    lr_diagonal = 0
+    rl_diagonal = 0
+    row_left = 0
+    cloumn_left = 0
+    while cloumn_left < len(arr) and row_left < len(arr):
+        lr_diagonal += arr[row_left][cloumn_left]
+        row_left +=1
+        cloumn_left +=1 
+    
+    row_right = 0
+    coulmn_right = len(arr)-1
+    while coulmn_right >= 0 and row_right < len(arr):
+        rl_diagonal += arr[row_right][coulmn_right]
+        row_right +=1
+        coulmn_right -=1           
+           
+    return(abs(lr_diagonal - rl_diagonal))
