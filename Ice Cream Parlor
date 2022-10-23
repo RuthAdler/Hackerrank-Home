@@ -1,0 +1,8 @@
+def icecreamParlor(m, arr):
+    
+    dict = {}
+    for i in range(len(arr)):
+        if m-arr[i] in dict.keys():
+            return [dict.get(m-arr[i])+1, i+1]
+        dict[arr[i]] = i
+    return []
